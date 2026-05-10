@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Teste - Tsunami Pro</title>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #00ffff;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-card {
+            border: 2px solid #0088ff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px #0088ff;
+            text-align: center;
+        }
+        input {
+            background: #1a1a1a;
+            border: 1px solid #0088ff;
+            color: #00ffff;
+            padding: 10px;
+            margin: 10px 0;
+            width: 80%;
+            border-radius: 5px;
+        }
+        button {
+            background: #0088ff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        #mensagem { margin-top: 15px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="login-card">
+        <h2>ACESSAR TERMINAL</h2>
+        <input type="text" id="usuario" placeholder="Usuário">
+        <br>
+        <input type="password" id="senha" placeholder="Senha">
+        <br>
+        <button onclick="verificar()">LOGAR</button>
+        <p id="mensagem"></p>
+    </div>
+
+    <script>
+        function verificar() {
+            const user = document.getElementById('usuario').value;
+            const pass = document.getElementById('senha').value;
+            const msg = document.getElementById('mensagem');
+
+            // Senha definida para o seu teste
+            if (user === "admin" && pass === "ian123") {
+                msg.style.color = "#00ff00";
+                msg.innerHTML = "ACESSO CONCEDIDO!";
+            } else {
+                msg.style.color = "#ff0000";
+                msg.innerHTML = "ERRO: SENHA INCORRETA";
+            }
+        }
+    </script>
+</body>
+</html>

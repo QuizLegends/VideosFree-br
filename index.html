@@ -1,76 +1,629 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Teste - Tsunami Pro</title>
-    <style>
-        body {
-            background-color: #0a0a0a;
-            color: #00ffff;
-            font-family: 'Courier New', Courier, monospace;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .login-card {
-            border: 2px solid #0088ff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px #0088ff;
-            text-align: center;
-        }
-        input {
-            background: #1a1a1a;
-            border: 1px solid #0088ff;
-            color: #00ffff;
-            padding: 10px;
-            margin: 10px 0;
-            width: 80%;
-            border-radius: 5px;
-        }
-        button {
-            background: #0088ff;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            font-weight: bold;
-            border-radius: 5px;
-        }
-        #mensagem { margin-top: 15px; font-weight: bold; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MoneyPrinterTurbo - Gerador de vídeos curtos com IA. Forneça um tema ou palavra-chave e gere roteiro, imagens, legendas, música e vídeo HD automaticamente.">
+  <title>MoneyPrinterTurbo 💸 | Gerador de Vídeos Curtos com IA</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💸</text></svg>">
 </head>
 <body>
-
-    <div class="login-card">
-        <h2>ACESSAR TERMINAL</h2>
-        <input type="text" id="usuario" placeholder="Usuário">
-        <br>
-        <input type="password" id="senha" placeholder="Senha">
-        <br>
-        <button onclick="verificar()">LOGAR</button>
-        <p id="mensagem"></p>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo">MoneyPrinterTurbo <span>💸</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#recursos">Recursos</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#requisitos">Requisitos</a></li>
+        <li><a href="#inicio-rapido">Início Rápido</a></li>
+        <li><a href="#instalacao">Instalação</a></li>
+        <li><a href="https://github.com/harry0703/MoneyPrinterTurbo" target="_blank" rel="noopener" class="btn-github">GitHub</a></li>
+      </ul>
     </div>
+  </nav>
 
-    <script>
-        function verificar() {
-            const user = document.getElementById('usuario').value;
-            const pass = document.getElementById('senha').value;
-            const msg = document.getElementById('mensagem');
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container hero-content">
+      <h1>MoneyPrinterTurbo 💸</h1>
+      <p class="subtitle">Um Gerador Completo de Vídeos Curtos com IA</p>
+      <p class="description">
+        Forneça um <strong>tema</strong> ou <strong>palavra-chave</strong> e o MoneyPrinterTurbo gera o roteiro, seleciona as imagens, cria legendas e música de fundo, e produz um vídeo curto em HD.
+      </p>
+      <div class="badges">
+        <a href="https://github.com/harry0703/MoneyPrinterTurbo/releases" target="_blank" rel="noopener">
+          <img src="https://img.shields.io/github/v/release/harry0703/MoneyPrinterTurbo?color=00c853&label=versão" alt="Versão">
+        </a>
+        <img src="https://img.shields.io/badge/plataforma-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg" alt="Plataforma">
+        <img src="https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white" alt="Python">
+        <a href="https://github.com/harry0703/MoneyPrinterTurbo/releases/latest" target="_blank" rel="noopener">
+          <img src="https://img.shields.io/github/downloads/harry0703/MoneyPrinterTurbo/total" alt="Downloads">
+        </a>
+      </div>
+      <div class="hero-buttons">
+        <a href="https://github.com/harry0703/MoneyPrinterTurbo/releases/latest" class="btn btn-primary" target="_blank" rel="noopener">Baixar Agora</a>
+        <a href="#inicio-rapido" class="btn btn-secondary">Começar</a>
+        <a href="https://github.com/harry0703/MoneyPrinterTurbo" class="btn btn-outline" target="_blank" rel="noopener">Ver no GitHub</a>
+      </div>
+      <div class="lang-links">
+        <span>Idiomas do README original:</span>
+        English | <a href="https://github.com/harry0703/MoneyPrinterTurbo/blob/main/README.md" target="_blank" rel="noopener">简体中文</a> |
+        <a href="https://github.com/harry0703/MoneyPrinterTurbo/releases" target="_blank" rel="noopener">Releases</a> |
+        <a href="https://github.com/harry0703/MoneyPrinterTurbo/issues" target="_blank" rel="noopener">Issues</a>
+      </div>
+    </div>
+  </header>
 
-            // Senha definida para o seu teste
-            if (user === "admin" && pass === "aa") {
-                msg.style.color = "#00ff00";
-                msg.innerHTML = "ACESSO CONCEDIDO!";
-            } else {
-                msg.style.color = "#ff0000";
-                msg.innerHTML = "ERRO: SENHA INCORRETA";
-            }
-        }
-    </script>
+  <!-- Screenshots -->
+  <section class="section" id="screenshots">
+    <div class="container">
+      <h2 class="section-title">Capturas de Tela 🖥️</h2>
+      <div class="screenshots-grid">
+        <div class="screenshot-card">
+          <h3>WebUI</h3>
+          <img src="https://raw.githubusercontent.com/harry0703/MoneyPrinterTurbo/main/docs/webui-en.jpg" alt="Interface WebUI do MoneyPrinterTurbo" loading="lazy">
+        </div>
+        <div class="screenshot-card">
+          <h3>API</h3>
+          <img src="https://raw.githubusercontent.com/harry0703/MoneyPrinterTurbo/main/docs/api.jpg" alt="Documentação da API" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Special Thanks -->
+  <section class="section section-alt" id="agradecimentos">
+    <div class="container">
+      <h2 class="section-title">Agradecimentos Especiais ❤️</h2>
+      
+      <div class="sponsor-highlight">
+        <a href="https://platform.kimi.ai?track_id=track-f6b0a640d35c41deb03b247242a1058c&aff=moneyprinterturbo" target="_blank" rel="noopener">
+          <img src="https://gcdn.moonshot.cn/growth-cdn/sponsor/kimi-en.png" alt="Kimi patrocina MoneyPrinterTurbo" class="sponsor-banner">
+        </a>
+        <p>
+          Agradecemos ao <a href="https://platform.kimi.ai?track_id=track-f6b0a640d35c41deb03b247242a1058c&aff=moneyprinterturbo" target="_blank" rel="noopener">Kimi</a> por patrocinar este projeto! 
+          O <a href="https://www.kimi.com/blog/kimi-k3?aff=moneyprinterturbo" target="_blank" rel="noopener">Kimi K3</a> é o modelo mais capaz da Moonshot AI e o primeiro modelo open-source de classe 3T do mundo. 
+          Com visão nativa e janela de contexto de 1 milhão de tokens, o K3 oferece desempenho de fronteira em trabalho de conhecimento, raciocínio e tarefas de longo horizonte. 
+          Dentro do MoneyPrinterTurbo, o K3 impulsiona a criação de vídeos escrevendo roteiros e extraindo as palavras-chave de busca que determinam as imagens finais — quanto melhor ele entende o conteúdo, mais relevantes são os resultados.
+        </p>
+        <p class="offer">
+          <strong>Oferta exclusiva para usuários do MoneyPrinterTurbo:</strong> novos usuários que se registrarem pelo link dedicado recebem crédito de API bônus equivalente a 10% do primeiro recarregamento bem-sucedido, até CNY 1.000. A oferta termina em 30 de setembro de 2026. 
+          Visite a Plataforma Aberta Kimi (<a href="https://platform.kimi.com?track_id=track-2f5441d6ffd84c509dd079d78e9db5dc&aff=moneyprinterturbo" target="_blank" rel="noopener">站点中文</a> | 
+          <a href="https://platform.kimi.ai?track_id=track-f6b0a640d35c41deb03b247242a1058c&aff=moneyprinterturbo" target="_blank" rel="noopener">Global</a>) para experimentar a API.
+        </p>
+      </div>
+
+      <div class="sponsors-table">
+        <div class="sponsor-row">
+          <div class="sponsor-logo">
+            <a href="https://www.byteplus.com/en/product/modelark?utm_campaign=hw&utm_content=MoneyPrinterTurbo&utm_medium=devrel_tool_web&utm_source=OWO&utm_term=MoneyPrinterTurbo" target="_blank" rel="noopener">
+              <strong>BytePlus ModelArk</strong>
+            </a>
+          </div>
+          <div class="sponsor-desc">
+            Agradecemos ao Dola Seed por patrocinar este projeto! 
+            <a href="https://www.byteplus.com/en/product/modelark?utm_campaign=hw&utm_content=MoneyPrinterTurbo&utm_medium=devrel_tool_web&utm_source=OWO&utm_term=MoneyPrinterTurbo" target="_blank" rel="noopener">Dola Seed 2.0</a> 
+            é um modelo grande generalista multimodal desenvolvido de forma independente pela ByteDance para o mercado global. Construído sobre uma arquitetura multimodal unificada, suporta compreensão e geração conjunta de texto, imagens, áudio e vídeo. Possui nativamente colaboração de agentes, com forte raciocínio, execução de tarefas longas, integração de ferramentas e capacidades de codificação. Registre-se por este link para obter 500.000 tokens de cota de inferência gratuita por modelo.
+          </div>
+        </div>
+
+        <div class="sponsor-row">
+          <div class="sponsor-logo">
+            <a href="https://www.ccsub.net/register?ref=VCVDAWWY" target="_blank" rel="noopener">
+              <strong>CCSub</strong>
+            </a>
+          </div>
+          <div class="sponsor-desc">
+            Agradecemos ao <a href="https://www.ccsub.net/register?ref=VCVDAWWY" target="_blank" rel="noopener">CCSub</a> por patrocinar este projeto! 
+            O CCSub é uma plataforma de retransmissão de API de IA estável e acessível — sua substituição plug-and-play para uma assinatura Claude.ai. Uma chave de API dá acesso a Claude Opus 4.8, Sonnet, Haiku, GPT-5 e Gemini a cerca de 30% do custo direto da API, sem necessidade de VPN de qualquer lugar do mundo. Compatível com Claude Code, Codex, Cursor, Cline, Continue, Windsurf e todas as principais ferramentas de codificação com IA. 
+            Registre-se em <a href="https://www.ccsub.net/register?ref=VCVDAWWY" target="_blank" rel="noopener">www.ccsub.net</a> e ganhe US$ 5 de crédito gratuito no cadastro.
+          </div>
+        </div>
+
+        <div class="sponsor-row">
+          <div class="sponsor-logo">
+            <a href="https://infistar.ai/register?aff=6T4EYXP2&ref_source=link" target="_blank" rel="noopener">
+              <strong>Infistar.ai</strong>
+            </a>
+          </div>
+          <div class="sponsor-desc">
+            Agradecemos ao <a href="https://infistar.ai/register?aff=6T4EYXP2&ref_source=link" target="_blank" rel="noopener">Infistar.ai</a> por patrocinar este projeto!<br>
+            ⚡ Acesso de baixo custo e confiável: preços a partir de apenas 10% das taxas oficiais, com multiplicadores de modelo transparentes e registros detalhados de uso. Roteamento dinâmico entre vários provedores ajuda a evitar limites de taxa e interrupções inesperadas de serviço.<br>
+            🧠 LLMs líderes para criação de roteiros: acesse OpenAI, Claude, Google Gemini, DeepSeek, Qwen e outros modelos líderes por meio de uma API compatível com OpenAI. O Infistar.ai fornece suporte de baixa latência e alta concorrência para os fluxos de trabalho de geração de roteiros e extração de palavras-chave de mídia do MoneyPrinterTurbo.<br>
+            🎨 Um ecossistema multimodal de ponta: acesse modelos líderes de geração de imagens e vídeos incluindo FLUX, Midjourney, Seedance, Kling, Sora e Luma, todos prontos para a próxima geração de criação de vídeo com IA.<br>
+            🎁 Benefícios exclusivos para usuários do MoneyPrinterTurbo: cadastre-se pelo <a href="https://infistar.ai/register?aff=6T4EYXP2&ref_source=link" target="_blank" rel="noopener">link de indicação dedicado</a> para receber créditos bônus exclusivos / oferta de primeiro recarregamento e comece a criar imediatamente!
+          </div>
+        </div>
+
+        <div class="sponsor-row">
+          <div class="sponsor-logo">
+            <a href="https://reccloud.com" target="_blank" rel="noopener">
+              <strong>RecCloud</strong>
+            </a>
+          </div>
+          <div class="sponsor-desc">
+            Devido à <strong>implantação</strong> e <strong>uso</strong> deste projeto, há um certo limiar para alguns usuários iniciantes. Gostaríamos de expressar nossos agradecimentos especiais ao 
+            <a href="https://reccloud.com" target="_blank" rel="noopener">RecCloud (Plataforma de Serviço Multimídia Alimentada por IA)</a> 
+            por fornecer um serviço gratuito de <code>Gerador de Vídeo com IA</code> baseado neste projeto. Ele permite o uso online sem implantação, o que é muito conveniente.
+          </div>
+        </div>
+
+        <div class="sponsor-row">
+          <div class="sponsor-logo">
+            <a href="https://picwish.com" target="_blank" rel="noopener">
+              <strong>Picwish</strong>
+            </a>
+          </div>
+          <div class="sponsor-desc">
+            Agradecemos ao <a href="https://picwish.com" target="_blank" rel="noopener">Picwish</a> por apoiar e patrocinar este projeto, permitindo atualizações e manutenção contínuas. 
+            O Picwish foca no <strong>campo de processamento de imagens</strong>, fornecendo um rico conjunto de <strong>ferramentas de processamento de imagens</strong> que simplificam extremamente operações complexas, realmente tornando o processamento de imagens mais fácil.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Another Project -->
+  <section class="section" id="outro-projeto">
+    <div class="container">
+      <h2 class="section-title">Outro Projeto Open-Source do Criador: MangoDisk ⭐</h2>
+      <div class="project-card">
+        <a href="https://github.com/harry0703/MangoDisk" target="_blank" rel="noopener">
+          <img src="https://assets.mangodisk.app/images/readme/en-light.jpg" alt="MangoDisk - limpador de disco e analisador de espaço open-source" class="project-img" loading="lazy">
+        </a>
+        <p class="project-desc">
+          <strong>Um limpador de disco e analisador de espaço em disco open-source e prioritário em segurança para macOS e Windows</strong><br>
+          Encontre arquivos grandes e duplicados, limpe caches e restos de aplicativos, e recupere espaço em disco com segurança.
+        </p>
+        <a href="https://github.com/harry0703/MangoDisk" class="btn btn-primary" target="_blank" rel="noopener">Ver o Projeto Open-Source</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section section-alt" id="recursos">
+    <div class="container">
+      <h2 class="section-title">Recursos 🎯</h2>
+      <ul class="features-list">
+        <li>Fornece fluxos de trabalho de <strong>Agente de IA</strong>, <strong>WebUI</strong>, <strong>API</strong> e <strong>CLI</strong>, com código organizado por responsabilidades de controller, service e model</li>
+        <li>Suporta <strong>roteiros de vídeo gerados por IA</strong> e roteiros personalizados</li>
+        <li>Suporta vários tamanhos de <strong>vídeo em alta definição</strong>
+          <ul>
+            <li>Retrato 9:16, <code>1080x1920</code></li>
+            <li>Paisagem 16:9, <code>1920x1080</code></li>
+          </ul>
+        </li>
+        <li>Suporta <strong>geração de vídeo em lote</strong>, permitindo a criação de vários vídeos de uma vez e depois selecionar o mais satisfatório</li>
+        <li>Suporta definição da <strong>duração dos clipes de vídeo</strong>, facilitando ajustes na frequência de troca de material</li>
+        <li>Suporta geração de <strong>roteiro de vídeo multilíngue</strong></li>
+        <li>Suporta síntese de fala <strong>Edge TTS</strong>, <strong>Azure Speech</strong>, <strong>SiliconFlow</strong>, <strong>Google Gemini</strong>, <strong>Xiaomi MiMo</strong>, <strong>ElevenLabs</strong> e <strong>Chatterbox</strong> com pré-visualizações em tempo real</li>
+        <li>Suporta <strong>geração de legendas</strong> com fontes, posição, cor, tamanho, contorno e estilos de fundo configuráveis</li>
+        <li>Suporta música de fundo aleatória ou personalizada com volume ajustável</li>
+        <li>Suporta seus próprios <strong>ativos locais</strong> e filmagens HD gratuitas de <strong>Pexels</strong>, <strong>Pixabay</strong> e <strong>Coverr</strong></li>
+        <li>Suporta provedores de modelos líderes incluindo <strong>Kimi / Moonshot AI</strong>, <strong>OpenAI</strong>, <strong>Google Gemini</strong>, <strong>DeepSeek</strong>, <strong>Alibaba Cloud Qwen</strong>, <strong>Microsoft Azure OpenAI</strong>, <strong>ByteDance VolcEngine Ark</strong>, <strong>xAI Grok</strong>, <strong>MiniMax</strong> e <strong>Xiaomi MiMo</strong>, além de gateways unificados, agregadores e runtimes locais como <strong>Cloudflare AI Gateway</strong>, <strong>Alibaba ModelScope</strong>, <strong>AIHubMix</strong>, <strong>AIML API</strong>, <strong>EvoLink</strong>, <strong>Ollama</strong>, <strong>OneAPI</strong>, <strong>LiteLLM</strong>, <strong>Groq</strong> e <strong>Pollinations AI</strong></li>
+        <li>Suporta publicação <strong>multiplataforma com um clique</strong> no <strong>TikTok</strong>, <strong>Instagram</strong> e <strong>YouTube Shorts</strong> após a geração do vídeo</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="section" id="galeria">
+    <div class="container">
+      <h2 class="section-title">Galeria 🎬</h2>
+      <p class="section-intro">Todos os exemplos abaixo foram gerados com o MoneyPrinterTurbo.</p>
+
+      <h3 class="gallery-subtitle">Retrato 9:16</h3>
+      <div class="gallery-grid portrait">
+        <a class="gallery-item" href="https://harry0703.github.io/mpt-assets/?video=03-zh-portrait-city-morning.mp4" target="_blank" rel="noopener">
+          <img src="https://github.com/harry0703/mpt-assets/releases/download/assets/03-zh-portrait-city-morning.jpg" alt="Quando a Cidade Acorda" loading="lazy">
+          <div class="gallery-caption"><strong>Quando a Cidade Acorda</strong><br>Chinês · 14 seg</div>
+        </a>
+        <a class="gallery-item" href="https://harry0703.github.io/mpt-assets/?video=05-zh-portrait-clean-energy.mp4" target="_blank" rel="noopener">
+          <img src="https://github.com/harry0703/mpt-assets/releases/download/assets/05-zh-portrait-clean-energy.jpg" alt="O Futuro da Energia Limpa" loading="lazy">
+          <div class="gallery-caption"><strong>O Futuro da Energia Limpa</strong><br>Chinês · 24 seg</div>
+        </a>
+        <a class="gallery-item" href="https://harry0703.github.io/mpt-assets/?video=07-zh-portrait-space-exploration.mp4" target="_blank" rel="noopener">
+          <img src="https://github.com/harry0703/mpt-assets/releases/download/assets/07-zh-portrait-space-exploration.jpg" alt="Por que Ainda Exploramos o Espaço" loading="lazy">
+          <div class="gallery-caption"><strong>Por que Ainda Exploramos o Espaço</strong><br>Chinês · 27 seg</div>
+        </a>
+        <a class="gallery-item" href="https://harry0703.github.io/mpt-assets/?video=17-zh-portrait-seed-journey.mp4" target="_blank" rel="noopener">
+          <img src="https://github.com/harry0703/mpt-assets/releases/download/assets/17-zh-portrait-seed-journey.jpg" alt="A Jornada de uma Semente" loading="lazy">
+          <div class="gallery-caption"><strong>A Jornada de uma Semente</strong><br>Chinês · 44 seg</div>
+        </a>
+        <a class="gallery-item" href="https://harry0703.github.io/mpt-assets/?video=09-en-portrait-future-robotics.mp4" target="_blank" rel="noopener">
+          <img src="https://github.com/harry0703/mpt-assets/releases/download/assets/09-en-portrait-future-robotics.jpg" alt="O Futuro da Robótica do Cotidiano" loading="lazy">
+          <div class="gallery-caption"><strong>O Futuro da Robótica do Cotidiano</strong><br>Inglês · 21 seg</div>
+        </a>
+        <a class="gallery-item" href="https://harry0703.github.io/mpt-assets/?video=11-en-portrait-small-habits.mp4" target="_blank" rel="noopener">
+          <img src="https://github.com/harry0703/mpt-assets/releases/download/assets/11-en-portrait-small-habits.jpg" alt="Pequenos Hábitos, Mudança Duradoura" loading="lazy">
+          <div class="gallery-caption"><strong>Pequenos Hábitos, Mudança Duradoura</strong><br>Inglês · 19 seg</div>
+        </a>
+        <a class="gallery-item" href="https://harry0703.github.io/mpt-assets/?video=13-en-portrait-creative-work.mp4" target="_blank" rel="noopener">
+          <img src="https://github.com/harry0703/mpt-assets/releases/download/assets/13-en-portrait-creative-work.jpg" alt="Abrindo Espaço para o Trabalho Criativo" loading="lazy">
+          <div class="gallery-caption"><strong>Abrindo Espaço para o Trabalho Criativo</strong><br>Inglês · 20 seg</div>
+        </a>
+        <a class="gallery-item" href="https://harry0703.github.io/mpt-assets/?video=15-en-portrait-coffee-science.mp4" target="_blank" rel="noopener">
+          <img src="https://github.com/harry0703/mpt-assets/releases/download/assets/15-en-portrait-coffee-science.jpg" alt="A Ciência Dentro do Café" loading="lazy">
+          <div class="gallery-caption"><strong>A Ciência Dentro do Café</strong><br>Inglês · 23 seg</div>
+        </a>
+      </div>
+
+      <h3 class="gallery-subtitle">Paisagem 16:9</h3>
+      <div class="gallery-grid landscape">
+        <a class="gallery-item" href="https://harry0703.github.io/mpt-assets/?video=02-zh-landscape-deep-ocean.mp4" target="_blank" rel="noopener">
+          <img src="https://github.com/harry0703/mpt-assets/releases/download/assets/02-zh-landscape-deep-ocean.jpg" alt="Luz no Oceano Profundo" loading="lazy">
+          <div class="gallery-caption"><strong>Luz no Oceano Profundo</strong><br>Chinês · 23 seg</div>
+        </a>
+        <a class="gallery-item" href="https://harry0703.github.io/mpt-assets/?video=04-zh-landscape-reading-power.mp4" target="_blank" rel="noopener">
+          <img src="https://github.com/harry0703/mpt-assets/releases/download/assets/04-zh-landscape-reading-power.jpg" alt="Como a Leitura nos Molda" loading="lazy">
+          <div class="gallery-caption"><strong>Como a Leitura nos Molda</strong><br>Chinês · 23 seg</div>
+        </a>
+        <a class="gallery-item" href="https://harry0703.github.io/mpt-assets/?video=06-zh-landscape-pour-over-coffee.mp4" target="_blank" rel="noopener">
+          <img src="https://github.com/harry0703/mpt-assets/releases/download/assets/06-zh-landscape-pour-over-coffee.jpg" alt="Os Detalhes do Café Pour-Over" loading="lazy">
+          <div class="gallery-caption"><strong>Os Detalhes do Café Pour-Over</strong><br>Chinês · 23 seg</div>
+        </a>
+        <a class="gallery-item" href="https://harry0703.github.io/mpt-assets/?video=08-zh-landscape-spring-journey.mp4" target="_blank" rel="noopener">
+          <img src="https://github.com/harry0703/mpt-assets/releases/download/assets/08-zh-landscape-spring-journey.jpg" alt="A Primavera é Feita para Viajar" loading="lazy">
+          <div class="gallery-caption"><strong>A Primavera é Feita para Viajar</strong><br>Chinês · 14 seg</div>
+        </a>
+        <a class="gallery-item" href="https://harry0703.github.io/mpt-assets/?video=10-en-landscape-ocean-conservation.mp4" target="_blank" rel="noopener">
+          <img src="https://github.com/harry0703/mpt-assets/releases/download/assets/10-en-landscape-ocean-conservation.jpg" alt="Por que a Conservação dos Oceanos Importa" loading="lazy">
+          <div class="gallery-caption"><strong>Por que a Conservação dos Oceanos Importa</strong><br>Inglês · 25 seg</div>
+        </a>
+        <a class="gallery-item" href="https://harry0703.github.io/mpt-assets/?video=14-en-landscape-sustainable-cities.mp4" target="_blank" rel="noopener">
+          <img src="https://github.com/harry0703/mpt-assets/releases/download/assets/14-en-landscape-sustainable-cities.jpg" alt="Projetando Cidades Mais Sustentáveis" loading="lazy">
+          <div class="gallery-caption"><strong>Projetando Cidades Mais Sustentáveis</strong><br>Inglês · 27 seg</div>
+        </a>
+        <a class="gallery-item" href="https://harry0703.github.io/mpt-assets/?video=16-en-landscape-mountain-perspective.mp4" target="_blank" rel="noopener">
+          <img src="https://github.com/harry0703/mpt-assets/releases/download/assets/16-en-landscape-mountain-perspective.jpg" alt="O que as Montanhas nos Ensinam" loading="lazy">
+          <div class="gallery-caption"><strong>O que as Montanhas nos Ensinam</strong><br>Inglês · 18 seg</div>
+        </a>
+        <a class="gallery-item" href="https://harry0703.github.io/mpt-assets/?video=18-en-landscape-history-of-flight.mp4" target="_blank" rel="noopener">
+          <img src="https://github.com/harry0703/mpt-assets/releases/download/assets/18-en-landscape-history-of-flight.jpg" alt="Uma Breve História do Voo Humano" loading="lazy">
+          <div class="gallery-caption"><strong>Uma Breve História do Voo Humano</strong><br>Inglês · 59 seg</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- System Requirements -->
+  <section class="section section-alt" id="requisitos">
+    <div class="container">
+      <h2 class="section-title">Requisitos do Sistema 📦</h2>
+      <ul class="req-list">
+        <li>Plataformas recomendadas: Windows 10+, macOS 11+ ou uma distribuição Linux mainstream</li>
+        <li>A implantação local requer Python 3.11 ou posterior; Python 3.11 é recomendado</li>
+        <li>Uma GPU não é necessária, mas é recomendada se você quiser transcrição local mais rápida, processamento de vídeo mais rápido ou geração em lote mais suave</li>
+      </ul>
+
+      <div class="table-wrapper">
+        <table class="req-table">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Mínimo</th>
+              <th>Recomendado</th>
+              <th>Ótimo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>CPU</td>
+              <td>4 núcleos</td>
+              <td>6 a 8 núcleos</td>
+              <td>8+ núcleos</td>
+            </tr>
+            <tr>
+              <td>RAM</td>
+              <td>4 GB</td>
+              <td>8 GB</td>
+              <td>16+ GB</td>
+            </tr>
+            <tr>
+              <td>GPU</td>
+              <td>Não necessária</td>
+              <td>4+ GB VRAM</td>
+              <td>8+ GB VRAM</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <ul class="req-notes">
+        <li>Se você depende principalmente de LLMs na nuvem, TTS na nuvem e fontes de material online, CPU e RAM importam mais do que GPU</li>
+        <li>Se você usa <code>faster-whisper</code>, geração em lote ou processamento local mais pesado, uma GPU melhorará o throughput de forma notável</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Quick Start -->
+  <section class="section" id="inicio-rapido">
+    <div class="container">
+      <h2 class="section-title">Início Rápido 🚀</h2>
+      
+      <h3>Caminhos Recomendados</h3>
+      <ul>
+        <li>Se você não quiser instalar ou configurar o projeto manualmente: gere vídeos com um Agente de IA</li>
+        <li>Usuários Windows: use o pacote de um clique primeiro para a experiência local mais rápida</li>
+        <li>Usuários macOS / Linux: use <code>uv</code> como caminho principal de configuração local</li>
+        <li>Se você quiser um runtime mais isolado: use a implantação com Docker</li>
+      </ul>
+
+      <h3>Gerar Vídeos com um Agente de IA</h3>
+      <p>Se o seu Agente de IA puder ler documentos Skill e operar um terminal local, envie o prompt abaixo. O Agente instalará e configurará o MoneyPrinterTurbo, gerará o vídeo e retornará o caminho do arquivo de vídeo. Ele pedirá apenas as chaves de API necessárias que ainda não estejam configuradas. Este fluxo de trabalho atualmente suporta macOS e Windows.</p>
+      <pre class="code-block"><code>Use this Skill: https://raw.githubusercontent.com/harry0703/MoneyPrinterTurbo/main/docs/skill/SKILL.md
+Create a video with the topic "How AI is changing everyday life."</code></pre>
+
+      <h3>Executar no Google Colab</h3>
+      <p>Quer experimentar o MoneyPrinterTurbo sem configurar um ambiente local? Execute diretamente no Google Colab!</p>
+      <p>
+        <a href="https://colab.research.google.com/github/harry0703/MoneyPrinterTurbo/blob/main/docs/MoneyPrinterTurbo.ipynb" target="_blank" rel="noopener">
+          <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Abrir no Colab">
+        </a>
+      </p>
+
+      <h3>Windows</h3>
+      <p>Baixe o pacote de um clique mais recente para Windows nos Releases do GitHub e extraia-o diretamente.</p>
+      <ul>
+        <li>GitHub Release: <a href="https://github.com/harry0703/MoneyPrinterTurbo/releases/latest" target="_blank" rel="noopener">https://github.com/harry0703/MoneyPrinterTurbo/releases/latest</a></li>
+      </ul>
+      <p>Após o download, recomenda-se <strong>clicar duas vezes</strong> em <code>update.bat</code> primeiro para atualizar para o <strong>código mais recente</strong>, depois clicar duas vezes em <code>start.bat</code> para iniciar.</p>
+      <p>Após o lançamento, o navegador abrirá automaticamente (se abrir em branco, recomenda-se usar <strong>Chrome</strong> ou <strong>Edge</strong>).</p>
+
+      <h3>macOS / Linux</h3>
+      <p>Use as instruções de configuração local ou Docker abaixo.</p>
+    </div>
+  </section>
+
+  <!-- Installation -->
+  <section class="section section-alt" id="instalacao">
+    <div class="container">
+      <h2 class="section-title">Instalação e Implantação 📥</h2>
+
+      <h3>Pré-requisitos</h3>
+      <ul>
+        <li>A implantação local requer Python 3.11 ou posterior</li>
+        <li>No Windows, evite caminhos de projeto contendo caracteres não-ASCII, caracteres especiais ou espaços</li>
+      </ul>
+
+      <h4>① Clonar o Projeto</h4>
+      <pre class="code-block"><code>git clone https://github.com/harry0703/MoneyPrinterTurbo.git</code></pre>
+
+      <h4>② Configurar o Projeto (Opcional)</h4>
+      <p>No primeiro lançamento, o projeto cria <code>config.toml</code> a partir de <code>config.example.toml</code>. Você pode configurar o provedor de LLM, fonte de filmagens e chaves de API relacionadas diretamente nas configurações básicas da WebUI.</p>
+
+      <h3>Implantação com Docker 🐳</h3>
+      <h4>① Iniciar o Contêiner Docker</h4>
+      <p>Se você ainda não instalou o Docker, instale-o primeiro em <a href="https://www.docker.com/products/docker-desktop/" target="_blank" rel="noopener">https://www.docker.com/products/docker-desktop/</a></p>
+      <p>Se estiver usando um sistema Windows, consulte a documentação da Microsoft:</p>
+      <ol>
+        <li><a href="https://learn.microsoft.com/pt-br/windows/wsl/install" target="_blank" rel="noopener">https://learn.microsoft.com/pt-br/windows/wsl/install</a></li>
+        <li><a href="https://learn.microsoft.com/pt-br/windows/wsl/tutorials/wsl-containers" target="_blank" rel="noopener">https://learn.microsoft.com/pt-br/windows/wsl/tutorials/wsl-containers</a></li>
+      </ol>
+      <pre class="code-block"><code>cd MoneyPrinterTurbo
+docker compose -f docker-compose.release.yml up</code></pre>
+      <blockquote>
+        O padrão recomendado é <code>docker-compose.release.yml</code>, que puxa a imagem pré-construída do GitHub Container Registry: <code>ghcr.io/harry0703/moneyprinterturbo:latest</code>.<br>
+        Se você precisar construir a imagem localmente, ainda pode executar <code>docker compose up</code>.<br>
+        Antes do primeiro início, copie <code>config.example.toml</code> para <code>config.toml</code> para que possa ser montado nos contêineres.
+      </blockquote>
+
+      <h4>② Acessar a WebUI</h4>
+      <p>Abra seu navegador e visite <a href="http://127.0.0.1:8501" target="_blank" rel="noopener">http://127.0.0.1:8501</a></p>
+
+      <h4>③ Acessar a Documentação da API</h4>
+      <p>Abra seu navegador e visite <a href="http://127.0.0.1:8080/docs" target="_blank" rel="noopener">http://127.0.0.1:8080/docs</a> ou <a href="http://127.0.0.1:8080/redoc" target="_blank" rel="noopener">http://127.0.0.1:8080/redoc</a></p>
+
+      <h3>Implantação Manual 📦</h3>
+      <h4>① Criar um Ambiente Virtual Python</h4>
+      <p>Use o <a href="https://docs.astral.sh/uv/" target="_blank" rel="noopener">uv</a> para gerenciar o ambiente Python e as dependências. O projeto suporta Python 3.11 ou posterior; o exemplo abaixo usa Python 3.11.</p>
+      <pre class="code-block"><code>git clone https://github.com/harry0703/MoneyPrinterTurbo.git
+cd MoneyPrinterTurbo
+uv python install 3.11
+uv sync --frozen</code></pre>
+      <p>Se você ainda não estiver usando <code>uv</code>, ainda pode usar <code>venv + pip</code>.</p>
+      <pre class="code-block"><code>python3.11 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt</code></pre>
+      <p class="notes">
+        Notas:<br>
+        • <code>pyproject.toml</code> agora é o manifesto principal de dependências.<br>
+        • <code>uv.lock</code> fixa o ambiente resolvido, então <code>uv sync --frozen</code> é recomendado por padrão.<br>
+        • <code>requirements.txt</code> é mantido apenas para instalação legada baseada em <code>pip</code>.
+      </p>
+
+      <h4>② Iniciar a WebUI 🌐</h4>
+      <p>Observe que você precisa executar os seguintes comandos no <code>diretório raiz</code> do projeto MoneyPrinterTurbo.</p>
+      
+      <h5>Windows</h5>
+      <pre class="code-block"><code>.\webui.bat</code></pre>
+      <p>Você também pode executar <code>webui.bat</code> no CMD. O <code>webui.bat</code> prefere o <code>.venv</code> do projeto ou o Python empacotado do pacote portátil. Se nenhum Python do projeto for encontrado, mas o <code>uv</code> estiver instalado, ele automaticamente recorre a <code>uv run streamlit</code>. Para permitir que outros dispositivos na sua LAN acessem a WebUI, execute <code>set MPT_WEBUI_HOST=0.0.0.0</code> antes de executar <code>webui.bat</code>.</p>
+
+      <h5>macOS ou Linux</h5>
+      <pre class="code-block"><code>sh webui.sh</code></pre>
+      <p>O script usa automaticamente o ambiente virtual do projeto ou o <code>uv</code> e seleciona uma porta local disponível. Para permitir acesso de outros dispositivos na sua LAN, execute:</p>
+      <pre class="code-block"><code>MPT_WEBUI_HOST=0.0.0.0 sh webui.sh</code></pre>
+      <p>Após o lançamento, o navegador abrirá automaticamente.</p>
+
+      <h4>③ Iniciar o Serviço de API 🚀</h4>
+      <pre class="code-block"><code>uv run python main.py</code></pre>
+      <p>Se você já ativou o ambiente virtual manualmente, ainda pode executar:</p>
+      <pre class="code-block"><code>python main.py</code></pre>
+
+      <h4>④ Modo CLI Puro (Sem Navegador) ⌨️</h4>
+      <p>Se você não puder usar um navegador ou redirecionamento de porta, gere vídeos diretamente da linha de comando. O comando de geração completa mais simples é:</p>
+      <pre class="code-block"><code>uv run python cli.py --video-subject "How AI is changing everyday life"</code></pre>
+      <p>Para a referência completa de comandos, descrições de parâmetros e instruções de uso, execute:</p>
+      <pre class="code-block"><code>uv run python cli.py --help</code></pre>
+    </div>
+  </section>
+
+  <!-- Voice Synthesis -->
+  <section class="section" id="sintese-voz">
+    <div class="container">
+      <h2 class="section-title">Síntese de Voz 🗣</h2>
+      <p>
+        O provedor padrão é o <strong>Edge TTS</strong> gratuito, mostrado como <strong>Azure TTS V1</strong> na WebUI. 
+        O MoneyPrinterTurbo também suporta <strong>Azure TTS V2</strong>, <strong>SiliconFlow TTS</strong>, <strong>Google Gemini TTS</strong>, 
+        <strong>Xiaomi MiMo TTS</strong>, <strong>ElevenLabs TTS</strong>, <strong>Chatterbox TTS</strong> auto-hospedado e um modo sem voz.
+      </p>
+      <p>
+        Selecione um provedor e uma voz na WebUI e siga as instruções na tela para quaisquer credenciais necessárias. 
+        O Edge TTS não requer uma chave de API; 
+        <a href="https://portal.azure.com/" target="_blank" rel="noopener">Azure TTS V2</a> e outros provedores de nuvem exigem credenciais de suas respectivas plataformas. 
+        Veja as vozes disponíveis do Edge TTS na <a href="https://github.com/harry0703/MoneyPrinterTurbo/blob/main/docs/voice-list.txt" target="_blank" rel="noopener">lista de vozes</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Subtitle Generation -->
+  <section class="section section-alt" id="legendas">
+    <div class="container">
+      <h2 class="section-title">Geração de Legendas 📜</h2>
+      <p>Dois modos de geração de legendas estão disponíveis:</p>
+      <ul>
+        <li><strong>edge</strong>: Usa timestamps do TTS, roda rapidamente sem GPU e é o modo padrão.</li>
+        <li><strong>whisper</strong>: Usa a transcrição local <code>faster-whisper</code> quando é necessária uma linha do tempo de legendas mais precisa. O modelo é baixado no primeiro uso.</li>
+      </ul>
+      <p>Defina <code>subtitle_provider</code> em <code>config.toml</code> para alternar os modos. O Whisper usa o modelo <code>large-v3</code> de aproximadamente 3 GB por padrão. Para usar o modelo menor e mais rápido <code>large-v3-turbo</code> de aproximadamente 1,6 GB:</p>
+      <pre class="code-block"><code>[app]
+subtitle_provider = "whisper"
+
+[whisper]
+model_size = "large-v3-turbo"</code></pre>
+      <blockquote>
+        No primeiro uso, o Whisper baixa automaticamente o modelo do Hugging Face. Se o download automático falhar, baixe o <code>whisper-large-v3</code> manualmente do 
+        <a href="https://huggingface.co/Systran/faster-whisper-large-v3" target="_blank" rel="noopener">Hugging Face</a>.
+      </blockquote>
+      <p>Após extrair o modelo, coloque o diretório inteiro em <code>.\MoneyPrinterTurbo\models</code>. O caminho final deve ser <code>.\MoneyPrinterTurbo\models\whisper-large-v3</code>:</p>
+      <pre class="code-block"><code>MoneyPrinterTurbo
+  ├─models
+  │   └─whisper-large-v3
+  │          config.json
+  │          model.bin
+  │          preprocessor_config.json
+  │          tokenizer.json
+  │          vocabulary.json</code></pre>
+    </div>
+  </section>
+
+  <!-- Background Music & Fonts -->
+  <section class="section" id="musica-fontes">
+    <div class="container">
+      <h2 class="section-title">Música de Fundo 🎵</h2>
+      <p>A música de fundo para os vídeos está localizada no diretório <code>resource/songs</code> do projeto.</p>
+      <blockquote>
+        O projeto atual inclui algumas músicas padrão de vídeos do YouTube. Se houver problemas de direitos autorais, exclua-as.
+      </blockquote>
+
+      <h2 class="section-title" style="margin-top: 3rem;">Fontes de Legendas 🅰</h2>
+      <p>As fontes para renderização de legendas de vídeo estão localizadas no diretório <code>resource/fonts</code> do projeto, e você também pode adicionar suas próprias fontes.</p>
+    </div>
+  </section>
+
+  <!-- Common Questions -->
+  <section class="section section-alt" id="perguntas">
+    <div class="container">
+      <h2 class="section-title">Perguntas Frequentes 🤔</h2>
+
+      <details class="faq-item">
+        <summary>Como publico no TikTok, Instagram ou YouTube Shorts?</summary>
+        <div class="faq-content">
+          <p>Crie uma conta e chave de API no <a href="https://upload-post.com/" target="_blank" rel="noopener">Upload-Post</a>, depois adicione as seguintes configurações em <code>[app]</code> no <code>config.toml</code>:</p>
+          <pre class="code-block"><code>[app]
+upload_post_enabled = true
+upload_post_api_key = "sua-chave-api"
+upload_post_username = "seu-usuario"
+upload_post_platforms = ["tiktok", "instagram", "youtube"]
+upload_post_auto_upload = true
+upload_post_youtube_privacy_status = "public"</code></pre>
+          <p>Reinicie o aplicativo após salvar. Os vídeos gerados serão então publicados automaticamente nas plataformas configuradas. A privacidade do YouTube pode ser definida como <code>public</code>, <code>unlisted</code> ou <code>private</code>.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>RuntimeError: No ffmpeg exe could be found</summary>
+        <div class="faq-content">
+          <p>Normalmente, o ffmpeg será baixado e detectado automaticamente. No entanto, se o seu ambiente tiver problemas que impeçam downloads automáticos, você pode encontrar o seguinte erro:</p>
+          <pre class="code-block"><code>RuntimeError: No ffmpeg exe could be found.
+Install ffmpeg on your system, or set the IMAGEIO_FFMPEG_EXE environment variable.</code></pre>
+          <p>Nesse caso, você pode baixar o ffmpeg de <a href="https://www.gyan.dev/ffmpeg/builds/" target="_blank" rel="noopener">https://www.gyan.dev/ffmpeg/builds/</a>, descompactá-lo e definir <code>ffmpeg_path</code> para o seu caminho de instalação real.</p>
+          <pre class="code-block"><code>[app]
+# Defina de acordo com o seu caminho real; note que os separadores de caminho do Windows são \\
+ffmpeg_path = "C:\\Users\\harry\\Downloads\\ffmpeg.exe"</code></pre>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>OSError: [Errno 24] Too many open files</summary>
+        <div class="faq-content">
+          <p>Este problema é causado pelo limite do sistema no número de arquivos abertos. Você pode resolvê-lo modificando o limite de arquivos abertos do sistema.</p>
+          <p>Verifique o limite atual:</p>
+          <pre class="code-block"><code>ulimit -n</code></pre>
+          <p>Se estiver muito baixo, você pode aumentá-lo, por exemplo:</p>
+          <pre class="code-block"><code>ulimit -n 10240</code></pre>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Falha no download do modelo Whisper</summary>
+        <div class="faq-content">
+          <p>Erros como:</p>
+          <pre class="code-block"><code>LocalEntryNotFoundError: Cannot find an appropriate cached snapshot folder...
+An error occurred while synchronizing the model Systran/faster-whisper-large-v3...</code></pre>
+          <p><strong>Solução:</strong> Veja como baixar o modelo manualmente do Hugging Face na seção <a href="#legendas">Geração de Legendas</a>.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- Feedback -->
+  <section class="section" id="feedback">
+    <div class="container">
+      <h2 class="section-title">Feedback e Sugestões 📢</h2>
+      <p>Você pode enviar um <a href="https://github.com/harry0703/MoneyPrinterTurbo/issues" target="_blank" rel="noopener">issue</a> ou um <a href="https://github.com/harry0703/MoneyPrinterTurbo/pulls" target="_blank" rel="noopener">pull request</a>.</p>
+    </div>
+  </section>
+
+  <!-- License -->
+  <section class="section section-alt" id="licenca">
+    <div class="container">
+      <h2 class="section-title">Licença 📝</h2>
+      <p>Clique para ver o arquivo <a href="https://github.com/harry0703/MoneyPrinterTurbo/blob/main/LICENSE" target="_blank" rel="noopener"><code>LICENSE</code></a>.</p>
+    </div>
+  </section>
+
+  <!-- Star History -->
+  <section class="section" id="star-history">
+    <div class="container">
+      <h2 class="section-title">Histórico de Stars</h2>
+      <div class="star-history">
+        <a href="https://www.star-history.com/?repos=harry0703%2FMoneyPrinterTurbo&type=date&legend=top-left" target="_blank" rel="noopener">
+          <img src="https://api.star-history.com/chart?repos=harry0703/MoneyPrinterTurbo&type=date&legend=top-left" alt="Gráfico de Histórico de Stars" loading="lazy">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>MoneyPrinterTurbo 💸 — Gerador de Vídeos Curtos com IA</p>
+      <p>
+        <a href="https://github.com/harry0703/MoneyPrinterTurbo" target="_blank" rel="noopener">Repositório Original</a> ·
+        <a href="https://github.com/harry0703/MoneyPrinterTurbo/releases" target="_blank" rel="noopener">Releases</a> ·
+        <a href="https://github.com/harry0703/MoneyPrinterTurbo/issues" target="_blank" rel="noopener">Issues</a>
+      </p>
+      <p class="footer-note">Site traduzido e adaptado em português brasileiro · Pronto para GitHub Pages</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

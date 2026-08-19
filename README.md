@@ -2,7 +2,7 @@
 
 Site estático do projeto [MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo), 100% traduzido para português brasileiro, com tema **esmeralda brilhante**.
 
-## Conteúdo
+### Conteúdo
 
 - Página única (`index.html`) com todas as seções do README original traduzidas
 - Estilos em `styles.css` (tema escuro + verde esmeralda vibrante)

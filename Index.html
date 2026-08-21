@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VideosFree-br - Criador 3D</title>
+  
+  <!-- Script Oficial do Google para carregar arquivos 3D (.glb) -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: #030303;
+      color: #fff;
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Tela do Jogo */
+    .game-screen {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      max-width: 480px;
+      background-image: url('cenario.png');
+      background-position: center 15%;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 20px;
+      box-shadow: 0 0 25px rgba(255, 0, 51, 0.25), inset 0 0 50px rgba(0, 0, 0, 0.8);
+    }
+
+    /* Área de Exibição do Modelo 3D */
+    .viewport {
+      position: absolute;
+      top: 16%; 
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 58%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    model-viewer {
+      width: 100%;
+      height: 100%;
+      --poster-color: transparent;
+    }
+
+    /* Controles da Interface */
+    .ui-container {
+      margin-top: auto;
+      margin-bottom: 45px;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      background: linear-gradient(180deg, rgba(12, 12, 16, 0.92) 0%, rgba(5, 5, 8, 0.98) 100%);
+      padding: 16px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 0, 51, 0.6);
+      box-shadow: 0 0 15px rgba(255, 0, 51, 0.2), inset 0 0 10px rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(5px);
+    }
+
+    .section-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #ff0033;
+      font-weight: 800;
+      text-shadow: 0 0 8px rgba(255, 0, 51, 0.6);
+      margin-bottom: 6px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn {
+      flex: 1;
+      background: #0d0d12;
+      color: #666673;
+      border: 1px solid #22222e;
+      padding: 12px;
+      border-radius: 4px;
+      font-weight: 800;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .btn:hover {
+      border-color: rgba(255, 0, 51, 0.4);
+      color: #aaa;
+    }
+
+    .btn.active {
+      background: linear-gradient(135deg, #99001f 0%, #ff0033 100%);
+      color: #ffffff;
+      border-color: #ff3355;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+      box-shadow: 0 0 15px rgba(255, 0, 51, 0.6);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="game-screen">
+
+    <!-- Renderizador 3D -->
+    <div class="viewport">
+      <model-viewer 
+        id="hero-3d"
+        src="masculino.glb" 
+        alt="Personagem Masculino 3D"
+        camera-controls 
+        disable-zoom
+        disable-pan
+        interaction-prompt="none"
+        auto-rotate
+        autoplay
+        shadow-intensity="1"
+        exposure="1"
+        camera-orbit="0deg 75deg 3.0m"
+        camera-target="auto auto auto"
+        min-camera-orbit="-infinity 75deg 3.0m"
+        max-camera-orbit="infinity 75deg 3.0m">
+      </model-viewer>
+    </div>
+
+    <!-- Interface do Usuário -->
+    <div class="ui-container">
+      <div>
+        <div class="section-title">Gênero do Herói</div>
+        <div class="btn-group">
+          <button class="btn active" id="btn-m" onclick="setGender('masculino')">Masculino 3D</button>
+          <button class="btn" id="btn-f" onclick="setGender('feminino')">Feminino</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function setGender(gender) {
+      const viewer = document.getElementById('hero-3d');
+      const btnM = document.getElementById('btn-m');
+      const btnF = document.getElementById('btn-f');
+
+      if (gender === 'masculino') {
+        viewer.src = 'masculino.glb';
+        btnM.classList.add('active');
+        btnF.classList.remove('active');
+      } else {
+        viewer.src = 'feminino.glb';
+        btnF.classList.add('active');
+        btnM.classList.remove('active');
+      }
+    }
+  </script>
+</body>
+</html>

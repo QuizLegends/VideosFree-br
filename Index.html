@@ -27,8 +27,8 @@
       width: 100vw;
       height: 100vh;
       max-width: 480px;
-      /* Ajustado paraAssets/ (com A maiúsculo) */
-      background-image: url('Assets/cenario.png');
+      /* Caminho para a pasta assets em minúsculo */
+      background-image: url('assets/cenario.png');
       background-position: center 15%;
       background-repeat: no-repeat;
       background-size: 100%;
@@ -123,12 +123,11 @@
 
   <div class="game-screen">
 
-    <!-- Renderizador 3D -->
+    <!-- Renderizador 3D puxando via CDN da pasta assets (minúsculo) -->
     <div class="viewport">
-      <!-- Ajustado para Assets/masculino.glb -->
       <model-viewer 
         id="hero-3d"
-        src="Assets/masculino.glb" 
+        src="https://cdn.jsdelivr.net/gh/quizlegends/VideosFree-br@main/assets/masculino.glb" 
         alt="Personagem Masculino 3D"
         camera-controls 
         disable-zoom
@@ -164,13 +163,12 @@
       const btnM = document.getElementById('btn-m');
       const btnF = document.getElementById('btn-f');
 
-      /* Ajustado no JavaScript para Assets/ */
       if (gender === 'masculino') {
-        viewer.src = 'Assets/masculino.glb';
+        viewer.src = 'https://cdn.jsdelivr.net/gh/quizlegends/VideosFree-br@main/assets/masculino.glb';
         btnM.classList.add('active');
         btnF.classList.remove('active');
       } else {
-        viewer.src = 'Assets/feminino.glb';
+        viewer.src = 'https://cdn.jsdelivr.net/gh/quizlegends/VideosFree-br@main/assets/feminino.glb';
         btnF.classList.add('active');
         btnM.classList.remove('active');
       }

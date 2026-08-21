@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VideosFree-br - Criador 3D</title>
   
+  <!-- Script Oficial do Google para carregar arquivos 3D (.glb) -->
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 
   <style>
@@ -20,13 +21,14 @@
       overflow: hidden;
     }
 
+    /* Tela do Jogo */
     .game-screen {
       position: relative;
       width: 100vw;
       height: 100vh;
       max-width: 480px;
-      /* Caminho corrigido para assets/ */
-      background-image: url('assets/cenario.png');
+      /* Ajustado paraAssets/ (com A maiúsculo) */
+      background-image: url('Assets/cenario.png');
       background-position: center 15%;
       background-repeat: no-repeat;
       background-size: 100%;
@@ -37,6 +39,7 @@
       box-shadow: 0 0 25px rgba(255, 0, 51, 0.25), inset 0 0 50px rgba(0, 0, 0, 0.8);
     }
 
+    /* Área de Exibição do Modelo 3D */
     .viewport {
       position: absolute;
       top: 16%; 
@@ -55,6 +58,7 @@
       --poster-color: transparent;
     }
 
+    /* Controles da Interface */
     .ui-container {
       margin-top: auto;
       margin-bottom: 45px;
@@ -119,11 +123,12 @@
 
   <div class="game-screen">
 
+    <!-- Renderizador 3D -->
     <div class="viewport">
-      <!-- Caminho corrigido para assets/ -->
+      <!-- Ajustado para Assets/masculino.glb -->
       <model-viewer 
         id="hero-3d"
-        src="assets/masculino.glb" 
+        src="Assets/masculino.glb" 
         alt="Personagem Masculino 3D"
         camera-controls 
         disable-zoom
@@ -140,6 +145,7 @@
       </model-viewer>
     </div>
 
+    <!-- Interface do Usuário -->
     <div class="ui-container">
       <div>
         <div class="section-title">Gênero do Herói</div>
@@ -158,13 +164,13 @@
       const btnM = document.getElementById('btn-m');
       const btnF = document.getElementById('btn-f');
 
-      /* Caminhos corrigidos para assets/ no JS */
+      /* Ajustado no JavaScript para Assets/ */
       if (gender === 'masculino') {
-        viewer.src = 'assets/masculino.glb';
+        viewer.src = 'Assets/masculino.glb';
         btnM.classList.add('active');
         btnF.classList.remove('active');
       } else {
-        viewer.src = 'assets/feminino.glb';
+        viewer.src = 'Assets/feminino.glb';
         btnF.classList.add('active');
         btnM.classList.remove('active');
       }

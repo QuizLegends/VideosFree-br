@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VideosFree-br - Criador 3D</title>
   
-  <!-- Script Oficial do Google para carregar arquivos 3D (.glb) -->
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 
   <style>
@@ -21,13 +20,11 @@
       overflow: hidden;
     }
 
-    /* Tela do Jogo */
     .game-screen {
       position: relative;
       width: 100vw;
       height: 100vh;
       max-width: 480px;
-      /* Caminho para a pasta assets em minúsculo */
       background-image: url('assets/cenario.png');
       background-position: center 15%;
       background-repeat: no-repeat;
@@ -39,7 +36,6 @@
       box-shadow: 0 0 25px rgba(255, 0, 51, 0.25), inset 0 0 50px rgba(0, 0, 0, 0.8);
     }
 
-    /* Área de Exibição do Modelo 3D */
     .viewport {
       position: absolute;
       top: 16%; 
@@ -58,7 +54,6 @@
       --poster-color: transparent;
     }
 
-    /* Controles da Interface */
     .ui-container {
       margin-top: auto;
       margin-bottom: 45px;
@@ -123,11 +118,10 @@
 
   <div class="game-screen">
 
-    <!-- Renderizador 3D puxando via CDN da pasta assets (minúsculo) -->
     <div class="viewport">
       <model-viewer 
         id="hero-3d"
-        src="https://cdn.jsdelivr.net/gh/quizlegends/VideosFree-br@main/assets/masculino.glb" 
+        src="assets/masculino.glb" 
         alt="Personagem Masculino 3D"
         camera-controls 
         disable-zoom
@@ -144,7 +138,6 @@
       </model-viewer>
     </div>
 
-    <!-- Interface do Usuário -->
     <div class="ui-container">
       <div>
         <div class="section-title">Gênero do Herói</div>
@@ -164,11 +157,11 @@
       const btnF = document.getElementById('btn-f');
 
       if (gender === 'masculino') {
-        viewer.src = 'https://cdn.jsdelivr.net/gh/quizlegends/VideosFree-br@main/assets/masculino.glb';
+        viewer.src = 'assets/masculino.glb';
         btnM.classList.add('active');
         btnF.classList.remove('active');
       } else {
-        viewer.src = 'https://cdn.jsdelivr.net/gh/quizlegends/VideosFree-br@main/assets/feminino.glb';
+        viewer.src = 'assets/feminino.glb';
         btnF.classList.add('active');
         btnM.classList.remove('active');
       }

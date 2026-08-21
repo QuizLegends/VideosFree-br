@@ -22,7 +22,7 @@
       align-items: center;
     }
 
-    /* Tela Principal - Ajustada para não cortar as laterais do texto HERÓIS */
+    /* Tela Principal */
     .game-screen {
       position: relative;
       width: 100vw;
@@ -30,7 +30,7 @@
       background-image: url('assets/cenario.png');
       background-position: center top;
       background-repeat: no-repeat;
-      background-size: 100% 100%; /* Força a imagem a encaixar 100% na largura e altura sem zoom */
+      background-size: 100% 100%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -57,125 +57,70 @@
       --poster-color: transparent;
     }
 
-    /* Container dos Botões Flutuando no Rodapé */
+    /* Container dos Botões - Subido ~1.5cm (bottom: 45px) */
     .ui-container {
       position: absolute;
-      bottom: 20px;
+      bottom: 45px; 
       left: 0;
       width: 100%;
       z-index: 10;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 0 15px;
+      padding: 0 20px;
     }
 
     .btn-group {
       display: flex;
-      gap: 12px;
+      gap: 15px;
       width: 100%;
       justify-content: center;
     }
 
-    /* Botões no formato de Espada */
-    .sword-btn {
-      position: relative;
+    /* Botões Retangulares - Cinza Ferrugem com Borda Dourada */
+    .rusty-btn {
       flex: 1;
       max-width: 180px;
-      height: 46px;
-      background: linear-gradient(180deg, #3a3b40 0%, #1e1f24 50%, #0d0e11 100%);
-      color: #9a9b9e;
-      border: none;
+      height: 48px;
+      /* Fundo Cinza Sujo / Metal Oxidado com ferrugem escura */
+      background: radial-gradient(circle, #3d3b37 0%, #292826 60%, #171614 100%);
+      color: #c5bba8;
+      border: 2px solid #b8860b; /* Borda Dourada Metálica */
+      border-radius: 0px; /* Pontas Quadradas / Retangular */
       font-weight: 900;
-      font-size: 12px;
+      font-size: 13px;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
+      letter-spacing: 2px;
       cursor: pointer;
       text-align: center;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: all 0.15s ease-in-out;
+      transition: all 0.12s ease-in-out;
       user-select: none;
-
-      clip-path: polygon(
-        12px 0%, 
-        calc(100% - 12px) 0%, 
-        100% 50%, 
-        calc(100% - 12px) 100%, 
-        12px 100%, 
-        0% 50%
-      );
-
-      filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.9));
+      box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.9), 0 4px 8px rgba(0, 0, 0, 0.8);
+      text-shadow: 1px 1px 3px #000;
     }
 
-    .sword-btn::before {
-      content: '';
-      position: absolute;
-      top: 2px;
-      left: 2px;
-      right: 2px;
-      bottom: 2px;
-      background: linear-gradient(180deg, #2a2b2e 0%, #111215 100%);
-      clip-path: polygon(
-        11px 0%, 
-        calc(100% - 11px) 0%, 
-        100% 50%, 
-        calc(100% - 11px) 100%, 
-        11px 100%, 
-        0% 50%
-      );
-      z-index: 1;
+    /* Hover */
+    .rusty-btn:hover {
+      color: #ffd700;
+      border-color: #ffd700;
     }
 
-    .sword-btn span {
-      position: relative;
-      z-index: 2;
-      text-shadow: 1px 1px 2px #000;
-    }
-
-    .sword-btn::after {
-      content: '';
-      position: absolute;
-      left: 4px;
-      width: 4px;
-      height: 60%;
-      background: #55565b;
-      border-radius: 2px;
-      z-index: 2;
-      box-shadow: 0 0 2px #000;
-    }
-
-    .sword-btn:hover {
-      color: #dcdde1;
-    }
-
-    /* Efeito de Afundar ao clicar */
-    .sword-btn:active {
+    /* EFEITO DE AFUNDAR (Clique Real / Pressão) */
+    .rusty-btn:active {
       transform: translateY(4px) scale(0.97);
-      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.9));
+      box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.95), 0 1px 3px rgba(0, 0, 0, 0.9);
     }
 
-    /* Estado Ativo (Vermelho) */
-    .sword-btn.active {
-      background: linear-gradient(180deg, #ff3355 0%, #99001f 50%, #4a000e 100%);
-      color: #ffffff;
-      filter: drop-shadow(0 0 10px rgba(255, 0, 51, 0.7));
-    }
-
-    .sword-btn.active::before {
-      background: linear-gradient(180deg, #2b080e 0%, #140205 100%);
-    }
-
-    .sword-btn.active span {
-      color: #ffffff;
-      text-shadow: 0 0 8px rgba(255, 0, 51, 0.9), 1px 1px 3px #000;
-    }
-
-    .sword-btn.active::after {
-      background: #ff0033;
-      box-shadow: 0 0 6px #ff0033;
+    /* Estado Selecionado / Ativo - Dourado Vivo com Fundo Sujo Iluminado */
+    .rusty-btn.active {
+      background: radial-gradient(circle, #4d4436 0%, #2e261b 60%, #1c150c 100%);
+      color: #ffd700;
+      border-color: #ffe066;
+      box-shadow: inset 0 0 10px rgba(255, 215, 0, 0.3), 0 0 12px rgba(184, 134, 11, 0.6);
+      text-shadow: 0 0 6px rgba(255, 215, 0, 0.7), 1px 1px 3px #000;
     }
   </style>
 </head>
@@ -199,19 +144,19 @@
         exposure="1"
         camera-orbit="0deg 75deg 2.2m"
         camera-target="auto auto auto"
-        min-camera-orbit="-infinity 75deg 2.20m"
+        min-camera-orbit="-infinity 75deg 2.2m"
         max-camera-orbit="infinity 75deg 2.2m">
       </model-viewer>
     </div>
 
-    <!-- Botões em formato de Espada -->
+    <!-- Interface dos Botões -->
     <div class="ui-container">
       <div class="btn-group">
-        <button class="sword-btn active" id="btn-m" onclick="setGender('masculino')">
-          <span>Masculino</span>
+        <button class="rusty-btn active" id="btn-m" onclick="setGender('masculino')">
+          Masculino
         </button>
-        <button class="sword-btn" id="btn-f" onclick="setGender('feminino')">
-          <span>Feminino</span>
+        <button class="rusty-btn" id="btn-f" onclick="setGender('feminino')">
+          Feminino
         </button>
       </div>
     </div>
